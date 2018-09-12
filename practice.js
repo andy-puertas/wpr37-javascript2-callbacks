@@ -21,7 +21,11 @@
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
-// Code Here 
+
+var first = (arr, cb) => {
+  cb(arr[0]);
+}
+
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -41,7 +45,10 @@ first(names, function(firstName){
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
-//Code Here
+var last = (arr, cb) => {
+  cb(arr[arr.length - 1]);
+}
+
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -59,7 +66,11 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
-//Code Here
+var multiply = (num1, num2, cb) => {
+  var mult = num1 * num2;
+  cb(mult);
+}
+
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -78,7 +89,17 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+var contains = (arr, name, cb) => {
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] === name) {
+      cb(true);
+    }
+    else {
+      cb(false);
+    }
+  };
+}
+
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
