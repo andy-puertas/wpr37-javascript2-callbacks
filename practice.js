@@ -120,7 +120,25 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+
+// var uniq = (arr, cb) => {
+//   let newArr = [];
+//   for(var i = 0; i < arr.length; i++) {
+//     if(newArr.indexOf(arr[i]) === -1) {
+//       newArr.push(arr[i]);
+//     }
+//   }
+//   return cb(newArr);
+// }
+
+var uniq = (arr, cb) => {
+  let newArr = arr.filter( function(elem, index, self){
+    return index === self.indexOf(elem);
+  })
+  return cb(newArr);
+}
+
+
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -137,7 +155,14 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+//var names = ['Bob', 'Phil', 'Weeb', 'Steve', 'Jim'];
+
+
+var each = (arr, cb) => {
+  for(var i = 0; i < arr.length; i++) {
+    cb(arr[i], i);
+  }
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -154,7 +179,13 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+var getUserById = (users, id, cb) => {
+  for(var i = 0; i < users.length; i++) {
+    if(id === users[i].id) {
+      cb(users[i]);
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
